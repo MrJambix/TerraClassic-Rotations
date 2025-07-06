@@ -12,6 +12,7 @@ Configurable on a per-class basis with specialized rotations for different roles
 **Requires *Command* module which should come with your proxy.**
 
 **If you run into any bugs/issues, please create an issue on GitHub or contact MrJambix**
+
 ** Keep in mind these might not work properly if not all skills are unlocked, working on a fix**
 ## Note on Code Obfuscation
 
