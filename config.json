@@ -1,0 +1,12 @@
+{
+    "delay_ms": {
+        "on": false,
+        "delay": 0 
+    },
+    "human": {
+        "human": false
+    },
+    "auto": {
+        "auto": true
+    }
+}
