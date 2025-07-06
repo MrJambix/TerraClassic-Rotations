@@ -1,6 +1,4 @@
-#Works for Tera Classic Private Server
-
-# Skill Rotation
+# Works for Tera Classic Private Server
 
 ### Alpha Version
 
