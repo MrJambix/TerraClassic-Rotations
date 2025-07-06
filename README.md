@@ -13,6 +13,7 @@ Configurable on a per-class basis with specialized rotations for different roles
 
 **If you run into any bugs/issues, please create an issue on GitHub or contact MrJambix**
 
+** Keep in mind these might not work properly if not all skills are unlocked, working on a fix**
 ## Note on Code Obfuscation
 
 The main code files in this module are intentionally obfuscated to protect the intellectual property and prevent easy copying or modification. This helps ensure that:
@@ -57,9 +58,9 @@ The obfuscation does not affect functionality or performance, and all features r
 
 ### Fully Implemented
 - **Warrior** - Both DPS (Assault Stance) and Tank (Defensive Stance) rotations
+- **Archer** - DPS rotation with focus on maintaining buffs and debuffs
 
 ### Planned
-- Archer - DPS rotation with focus on maintaining buffs and debuffs
 - Berserker - DPS rotation with proper charge management
 - Valkyrie - DPS rotation with Ragnarok optimization
 - Slayer - DPS rotation with focus on reset mechanics
