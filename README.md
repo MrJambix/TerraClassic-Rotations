@@ -13,6 +13,17 @@ Configurable on a per-class basis with specialized rotations for different roles
 
 **If you run into any bugs/issues, please create an issue on GitHub or contact MrJambix**
 
+## Note on Code Obfuscation
+
+The main code files in this module are intentionally obfuscated to protect the intellectual property and prevent easy copying or modification. This helps ensure that:
+
+1. The module remains stable and functions as intended
+2. Users don't accidentally break functionality by modifying code
+3. The rotation algorithms remain proprietary
+4. The module is protected against unauthorized redistribution
+
+The obfuscation does not affect functionality or performance, and all features remain fully accessible through the documented commands.
+
 ## Features
 
 - Automatic skill rotations based on class and role
