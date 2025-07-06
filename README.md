@@ -57,9 +57,9 @@ The obfuscation does not affect functionality or performance, and all features r
 
 ### Fully Implemented
 - **Warrior** - Both DPS (Assault Stance) and Tank (Defensive Stance) rotations
+- **- Archer** - DPS rotation with focus on maintaining buffs and debuffs
 
 ### Planned
-- Archer - DPS rotation with focus on maintaining buffs and debuffs
 - Berserker - DPS rotation with proper charge management
 - Valkyrie - DPS rotation with Ragnarok optimization
 - Slayer - DPS rotation with focus on reset mechanics
