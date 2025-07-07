@@ -7,7 +7,7 @@ A Tera Proxy module that automates skill rotations for different classes.
 Configurable on a per-class basis with specialized rotations for different roles.
 
 **Original Skeleton created by Pinki Pie**  
-**Full Release by MrJambix**
+**This Version by MrJambix**
 
 **Requires *Command* module which should come with your proxy.**
 
