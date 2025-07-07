@@ -1,1 +1,89 @@
-const _0xc8b6d1=_0x3f9f;(function(_0x39c22a,_0x166f26){const _0x564cb8=_0x3f9f,_0xfe8339=_0x39c22a();while(!![]){try{const _0x22e39b=parseInt(_0x564cb8(0x169))/0x1*(-parseInt(_0x564cb8(0x172))/0x2)+-parseInt(_0x564cb8(0x171))/0x3*(-parseInt(_0x564cb8(0x170))/0x4)+-parseInt(_0x564cb8(0x15d))/0x5+parseInt(_0x564cb8(0x16d))/0x6+-parseInt(_0x564cb8(0x161))/0x7+-parseInt(_0x564cb8(0x15b))/0x8*(-parseInt(_0x564cb8(0x160))/0x9)+parseInt(_0x564cb8(0x167))/0xa*(parseInt(_0x564cb8(0x164))/0xb);if(_0x22e39b===_0x166f26)break;else _0xfe8339['push'](_0xfe8339['shift']());}catch(_0x3ef17b){_0xfe8339['push'](_0xfe8339['shift']());}}}(_0x1b0c,0x21e55));const skillsData=require(_0xc8b6d1(0x159))[0x5],ARCHER_PRIORITY=[0x3,0x4,0x2,0x1d,0x5,0x13,0x16,0x1];function _0x3f9f(_0x41c221,_0x3f3c1b){const _0x1b0c03=_0x1b0c();return _0x3f9f=function(_0x3f9ff0,_0x55a385){_0x3f9ff0=_0x3f9ff0-0x159;let _0x487287=_0x1b0c03[_0x3f9ff0];return _0x487287;},_0x3f9f(_0x41c221,_0x3f3c1b);}class ArcherRotation{constructor(_0x2f8f03,_0x35db0d){const _0x1ab76a=_0xc8b6d1;this[_0x1ab76a(0x16b)]=_0x2f8f03,this[_0x1ab76a(0x15c)]=_0x35db0d['isSkillOnCooldown'],this[_0x1ab76a(0x174)]=_0x35db0d['setCooldown'],this['pcid']=_0x35db0d[_0x1ab76a(0x16c)],this[_0x1ab76a(0x175)]=_0x35db0d[_0x1ab76a(0x175)],this[_0x1ab76a(0x165)]=null,this[_0x1ab76a(0x15e)]=null;}[_0xc8b6d1(0x15f)](_0x3cc606){const _0x1eb3b7=_0xc8b6d1;if(!_0x3cc606)return;for(let _0x54c05e of ARCHER_PRIORITY){const _0x3886a3=skillsData[_0x54c05e];if(!_0x3886a3)continue;if(_0x54c05e===0x16&&!this['hasBuff'](_0x3886a3[0x0]?.['requiredBuff']))continue;if(!this['isSkillOnCooldown'](_0x54c05e)){if(_0x54c05e===0x3||_0x54c05e===0x4)this['castChargeSkill'](_0x54c05e,_0x3886a3);else _0x54c05e===0x2?this[_0x1eb3b7(0x15a)](_0x54c05e,_0x3886a3):this['castNormalSkill'](_0x54c05e,_0x3886a3);break;}}}[_0xc8b6d1(0x16e)](_0x482fbc,_0x4ed084){const _0x377ea5=_0xc8b6d1;let _0x21ccd1=0x0,_0x5d4204=_0x4ed084[_0x21ccd1]||_0x4ed084[0x0],_0x2b9e33=Array[_0x377ea5(0x168)](_0x5d4204[_0x377ea5(0x173)])?_0x5d4204['length'][0x0]:_0x5d4204[_0x377ea5(0x173)]||0x1f4;this[_0x377ea5(0x16b)][_0x377ea5(0x163)](_0x377ea5(0x16f),0x7,{'skill':_0x482fbc,'w':this[_0x377ea5(0x175)]['w'],'loc':this[_0x377ea5(0x175)]['loc'],'dest':this[_0x377ea5(0x175)]['loc'],'unk':!![],'moving':![],'continue':![],'target':0x0n,'loc2':this[_0x377ea5(0x175)]['loc'],'unk2':0x0}),this[_0x377ea5(0x174)](_0x482fbc,_0x2b9e33);}[_0xc8b6d1(0x162)](_0x7db85b,_0x40e348){const _0x39cd57=_0xc8b6d1,_0x99d695=_0x40e348[0x0],_0x32c919=_0x40e348['*']||{},_0x1677a8=Array[_0x39cd57(0x168)](_0x99d695[_0x39cd57(0x173)])?_0x99d695[_0x39cd57(0x173)]:[_0x99d695['length']];let _0x1cb13e=_0x1677a8[0x0]||0x1f4,_0x4c16b6=_0x32c919[_0x39cd57(0x173)]||0x1f4;this[_0x39cd57(0x16b)][_0x39cd57(0x163)]('C_START_SKILL',0x7,{'skill':_0x7db85b,'w':this[_0x39cd57(0x175)]['w'],'loc':this[_0x39cd57(0x175)][_0x39cd57(0x166)],'dest':this[_0x39cd57(0x175)][_0x39cd57(0x166)],'unk':!![],'moving':![],'continue':!![],'target':0x0n,'loc2':this[_0x39cd57(0x175)]['loc'],'unk2':0x0}),setTimeout(()=>{const _0x3ec8b4=_0x39cd57;this[_0x3ec8b4(0x16b)][_0x3ec8b4(0x163)]('C_START_SKILL',0x7,{'skill':_0x7db85b,'w':this[_0x3ec8b4(0x175)]['w'],'loc':this[_0x3ec8b4(0x175)]['loc'],'dest':this[_0x3ec8b4(0x175)][_0x3ec8b4(0x166)],'unk':!![],'moving':![],'continue':![],'target':0x0n,'loc2':this[_0x3ec8b4(0x175)][_0x3ec8b4(0x166)],'unk2':0x0}),this[_0x3ec8b4(0x174)](_0x7db85b,_0x1cb13e+_0x4c16b6);},_0x1cb13e);}[_0xc8b6d1(0x15a)](_0x271450,_0x5574e4){const _0x49aef3=_0xc8b6d1,_0x397c38=_0x5574e4[0x0];let _0x3bc5ca=_0x397c38[_0x49aef3(0x173)]||0x3e8;this['mod'][_0x49aef3(0x163)](_0x49aef3(0x16f),0x7,{'skill':_0x271450,'w':this['playerLocation']['w'],'loc':this['playerLocation']['loc'],'dest':this[_0x49aef3(0x175)][_0x49aef3(0x166)],'unk':!![],'moving':![],'continue':![],'target':0x0n,'loc2':this[_0x49aef3(0x175)][_0x49aef3(0x166)],'unk2':0x0}),this[_0x49aef3(0x174)](_0x271450,_0x3bc5ca);}[_0xc8b6d1(0x16a)](_0x38e74f){return!![];}}function _0x1b0c(){const _0x169eb2=['castNormalSkill','C_START_SKILL','608fAlkyu','4098ybZAjc','27372GMBsnH','length','setCooldown','playerLocation','../skills.js','castLockonSkill','104rzHOLo','isSkillOnCooldown','812975XiasPe','chargeStart','execute','504dZyuDG','706426QYZNva','castChargeSkill','toServer','11DzwDmo','lockonTarget','loc','1905140NHCFJu','isArray','11RpTzTy','hasBuff','mod','pcid','924132XAdZcX'];_0x1b0c=function(){return _0x169eb2;};return _0x1b0c();}module['exports']=ArcherRotation;
+module.exports = class ArcherRotation {
+    constructor(mod, helpers) {
+        this.mod = mod;
+        this.isSkillOnCooldown = helpers.isSkillOnCooldown;
+        this.setCooldown = helpers.setCooldown;
+        this.pcid = helpers.pcid;
+        this.playerLocation = helpers.playerLocation;
+        this.castSkill = helpers.castSkill;
+        this.skills = helpers.skills;
+
+        this.availableSkills = new Set();
+        this.activeBuffs = new Set();
+
+        // Track available skills
+        mod.hook('S_SKILL_LIST', 2, event => {
+            for (const skill of event.skills) {
+                this.availableSkills.add(skill.id);
+            }
+        });
+
+        // Track active abnormalities (buffs)
+        mod.hook('S_ABNORMALITY_BEGIN', 3, event => {
+            if (event.target === this.pcid) {
+                this.activeBuffs.add(event.id);
+            }
+        });
+
+        mod.hook('S_ABNORMALITY_END', 1, event => {
+            if (event.target === this.pcid) {
+                this.activeBuffs.delete(event.id);
+            }
+        });
+    }
+
+    canCast(skillId) {
+        return (
+            !this.isSkillOnCooldown(skillId) &&
+            this.availableSkills.has(skillId)
+        );
+    }
+
+    hasBuff(buffId) {
+        return this.activeBuffs.has(buffId);
+    }
+
+    async execute(enabled) {
+        if (!enabled) return;
+
+        const priority = [
+            this.skills.radiantArrow,
+            this.skills.penetratingArrow,
+            this.skills.arrowVolley,
+            this.skills.thunderbolt,
+            this.skills.rainOfArrows,
+            this.skills.poisonArrow,
+            this.skills.sequentialFire,
+            this.skills.arrow // Filler
+        ];
+
+        for (let skillId of priority) {
+            if (!this.canCast(skillId)) continue;
+
+            // Buff check for Sequential Fire
+            if (skillId === this.skills.sequentialFire && !this.hasBuff(this.skills.sequentialFireBuff)) continue;
+
+            // Handle skill types
+            if (skillId === this.skills.radiantArrow || skillId === this.skills.penetratingArrow) {
+                await this.chargeAndCast(skillId, 13, 1800, 1000);
+            } else {
+                this.castSkill(skillId, 1000);
+            }
+            break;
+        }
+    }
+
+    async chargeAndCast(baseId, releaseSubId, chargeTime, castDuration) {
+        this.mod.send('C_PRESS_SKILL', 4, {
+            skill: { id: baseId, type: 0 },
+            press: true,
+            loc: this.playerLocation.loc,
+            w: this.playerLocation.w,
+            target: 0
+        });
+
+        await new Promise(res => setTimeout(res, chargeTime));
+
+        this.castSkill({ id: baseId, type: releaseSubId }, castDuration);
+    }
+};

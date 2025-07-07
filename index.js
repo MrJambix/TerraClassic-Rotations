@@ -1,1 +1,223 @@
-function _0x1e28(){const _0x329c56=['class','setTankMode','dps','delay','tank','Your\x20class\x20does\x20not\x20support\x20tank\x20mode\x20or\x20rotation\x20not\x20loaded.','auto','require','3691740zXSNSI','105TmnTMV','348846WlhAmA','remove','gameId','Human\x20behavior\x20','553996EzGrpv','stop','11879656rfxWHX','No\x20rotation\x20available\x20for\x20class:\x20','enter_combat','message','Entered\x20combat,\x20auto-starting\x20rotation','game','Your\x20class\x20does\x20not\x20support\x20dps\x20mode\x20or\x20rotation\x20not\x20loaded.','18HzsnPb','Error\x20loading\x20config:\x20','disabled','Auto-start\x20in\x20combat\x20','Rotations\x20disabled!','human','6041295ccXeMW','exec','toLowerCase','Config\x20loaded:\x20delay=','5612540UdbbGe','leave_combat','add','destructor','Use\x20\x22/8\x20on\x22\x20to\x20enable\x20rotations\x20and\x20\x22/8\x20start\x22\x20to\x20start\x20manually.','floor','name','2694naJeeM','1196vzfXcx','Rotations\x20enabled!','loc','execute',').\x20Rotation\x20loaded.','hook',',\x20auto=','No\x20rotation\x20loaded\x20for\x20your\x20class.','./config.json','delay_ms','function','change_template','random','now','enabled','start','Auto-start\x20in\x20combat\x20is\x20enabled\x20by\x20default.\x20Use\x20\x22/8\x20auto\x22\x20to\x20toggle.'];_0x1e28=function(){return _0x329c56;};return _0x1e28();}function _0x462a(_0x5dada7,_0x33b781){const _0x1e2867=_0x1e28();return _0x462a=function(_0x462ac6,_0x47a8d3){_0x462ac6=_0x462ac6-0xf5;let _0x4a46a9=_0x1e2867[_0x462ac6];return _0x4a46a9;},_0x462a(_0x5dada7,_0x33b781);}(function(_0x2b1877,_0x21a900){const _0x46edea=_0x462a,_0x3b5954=_0x2b1877();while(!![]){try{const _0x2612fe=parseInt(_0x46edea(0x12d))/0x1+-parseInt(_0x46edea(0x10e))/0x2*(-parseInt(_0x46edea(0x10d))/0x3)+-parseInt(_0x46edea(0x106))/0x4+parseInt(_0x46edea(0x102))/0x5+parseInt(_0x46edea(0x129))/0x6*(-parseInt(_0x46edea(0x128))/0x7)+parseInt(_0x46edea(0xf5))/0x8+-parseInt(_0x46edea(0xfc))/0x9*(parseInt(_0x46edea(0x127))/0xa);if(_0x2612fe===_0x21a900)break;else _0x3b5954['push'](_0x3b5954['shift']());}catch(_0x471f14){_0x3b5954['push'](_0x3b5954['shift']());}}}(_0x1e28,0xbc23a),module['exports']=function PVE(_0x2b2a0d){const _0x48e538=_0x462a,{command:_0x153416}=_0x2b2a0d[_0x48e538(0x126)];let _0x418dea=![],_0x1fa889=!![],_0x4544f4=![],_0x154de7=0x0,_0xbad33d=0x0,_0x17e7c3={},_0x309d36=null,_0x18e892=null;const _0x4ae2e2={'w':0x0,'loc':{'x':0x0,'y':0x0,'z':0x0}};try{const _0x2c3b57=require(_0x48e538(0x116));_0x154de7=_0x2c3b57[_0x48e538(0x117)]&&_0x2c3b57[_0x48e538(0x117)]['on']?_0x2c3b57[_0x48e538(0x117)][_0x48e538(0x122)]:0x0,_0x4544f4=_0x2c3b57[_0x48e538(0x101)]?_0x2c3b57[_0x48e538(0x101)][_0x48e538(0x101)]:![],_0x1fa889=_0x2c3b57[_0x48e538(0x125)]?_0x2c3b57[_0x48e538(0x125)][_0x48e538(0x125)]:!![],_0x153416[_0x48e538(0xf8)](_0x48e538(0x105)+_0x154de7+',\x20human='+_0x4544f4+_0x48e538(0x114)+_0x1fa889);}catch(_0x3c42ab){_0x153416[_0x48e538(0xf8)](_0x48e538(0xfd)+_0x3c42ab[_0x48e538(0xf8)]),_0x154de7=0x0,_0x4544f4=![],_0x1fa889=!![];}function _0x131ab6(_0x2e9da9,_0x5026c3){const _0x591973=_0x48e538;if(!_0x4544f4)return 0x0;return Math[_0x591973(0x10b)](Math[_0x591973(0x11a)]()*(_0x5026c3-_0x2e9da9+0x1))+_0x2e9da9;}function _0x38c731(_0x5afa87){const _0x31e58d=_0x48e538;if(!_0x17e7c3[_0x5afa87])return![];return Date[_0x31e58d(0x11b)]()<_0x17e7c3[_0x5afa87];}function _0x42b936(_0xc89250,_0x2b2320){_0x17e7c3[_0xc89250]=Date['now']()+_0x2b2320;}function _0x1a22a0(){const _0x3d8267=_0x48e538;if(!_0x2b2a0d[_0x3d8267(0xfa)]['me']['gameId']||!_0x2b2a0d[_0x3d8267(0xfa)]['me'][_0x3d8267(0x11f)]){_0x153416[_0x3d8267(0xf8)]('Not\x20ingame\x20or\x20unable\x20to\x20determine\x20class.'),_0x309d36=null,_0x18e892=null;return;}const _0x380867=_0x2b2a0d[_0x3d8267(0xfa)]['me'][_0x3d8267(0x11f)][_0x3d8267(0x104)]();_0x18e892=_0x380867,_0x17e7c3={},_0x418dea=![],_0xbad33d=0x0,_0x309d36=null;try{const _0x2676fd=require('./rotations/'+_0x380867);_0x309d36=new _0x2676fd(_0x2b2a0d,{'isSkillOnCooldown':_0x38c731,'setCooldown':_0x42b936,'pcid':_0x2b2a0d[_0x3d8267(0xfa)]['me'][_0x3d8267(0x12b)],'playerLocation':_0x4ae2e2}),_0x153416[_0x3d8267(0xf8)]('Logged\x20in\x20as\x20'+_0x2b2a0d['game']['me'][_0x3d8267(0x10c)]+'\x20('+_0x380867+_0x3d8267(0x112));}catch(_0x4347ad){_0x153416['message'](_0x3d8267(0xf6)+_0x380867+'.');}_0x153416[_0x3d8267(0xf8)](_0x3d8267(0x10a)),_0x153416[_0x3d8267(0xf8)](_0x3d8267(0x11e));}_0x2b2a0d['game']['me']['on'](_0x48e538(0x119),_0x1a22a0);if(_0x2b2a0d['game']['me'][_0x48e538(0x11f)])_0x1a22a0();_0x2b2a0d[_0x48e538(0x113)]('C_PLAYER_LOCATION',0x5,_0x9556c=>{const _0x29c9ce=_0x48e538;_0x4ae2e2['w']=_0x9556c['w'],_0x4ae2e2[_0x29c9ce(0x110)]={'x':_0x9556c[_0x29c9ce(0x110)]['x'],'y':_0x9556c[_0x29c9ce(0x110)]['y'],'z':_0x9556c[_0x29c9ce(0x110)]['z']};}),_0x153416[_0x48e538(0x108)]('on',()=>{const _0x5a30ff=_0x48e538;_0x418dea=!![],_0x153416['message'](_0x5a30ff(0x10f));}),_0x153416[_0x48e538(0x108)]('off',()=>{const _0x34c63a=_0x48e538;_0x418dea=![],_0x153416[_0x34c63a(0xf8)](_0x34c63a(0x100));}),_0x153416[_0x48e538(0x108)](_0x48e538(0x125),()=>{const _0x3ca6c7=_0x48e538;_0x1fa889=!_0x1fa889,_0x153416['message'](_0x3ca6c7(0xff)+(_0x1fa889?_0x3ca6c7(0x11c):_0x3ca6c7(0xfe))+'!');}),_0x153416['add'](_0x48e538(0x101),()=>{const _0x39b215=_0x48e538;_0x4544f4=!_0x4544f4,_0x153416[_0x39b215(0xf8)](_0x39b215(0x12c)+(_0x4544f4?_0x39b215(0x11c):'disabled')+'!');}),_0x153416[_0x48e538(0x108)]('delay',_0x47c9a5=>{const _0x2467d1=_0x48e538;_0x154de7=parseInt(_0x47c9a5)||0x0,_0x153416[_0x2467d1(0xf8)]('Delay\x20set\x20to\x20'+_0x154de7+'!');}),_0x153416[_0x48e538(0x108)](_0x48e538(0x123),()=>{const _0x4bfcbd=_0x48e538;_0x309d36&&typeof _0x309d36[_0x4bfcbd(0x120)]==='function'?_0x309d36[_0x4bfcbd(0x120)](!![]):_0x153416[_0x4bfcbd(0xf8)](_0x4bfcbd(0x124));}),_0x153416[_0x48e538(0x108)](_0x48e538(0x121),()=>{const _0x51aee4=_0x48e538;_0x309d36&&typeof _0x309d36['setTankMode']===_0x51aee4(0x118)?_0x309d36['setTankMode'](![]):_0x153416[_0x51aee4(0xf8)](_0x51aee4(0xfb));});let _0x193333;_0x153416[_0x48e538(0x108)](_0x48e538(0x11d),()=>{const _0x414e4e=_0x48e538;if(_0x193333)clearInterval(_0x193333);_0x418dea=!![],_0x193333=setInterval(()=>{const _0x421dc0=_0x462a;_0x309d36?_0x309d36[_0x421dc0(0x111)](_0x418dea):(_0x153416[_0x421dc0(0xf8)](_0x421dc0(0x115)),clearInterval(_0x193333),_0x193333=null);},0x64),_0x153416[_0x414e4e(0xf8)]('Rotation\x20started');}),_0x153416[_0x48e538(0x108)](_0x48e538(0x12e),()=>{const _0x3070e5=_0x48e538;_0x193333&&(clearInterval(_0x193333),_0x193333=null),_0x418dea=![],_0x153416[_0x3070e5(0xf8)]('Rotation\x20stopped');}),_0x2b2a0d[_0x48e538(0xfa)]['me']['on'](_0x48e538(0xf7),()=>{const _0x1739ab=_0x48e538;_0x1fa889&&!_0x193333&&(_0x153416[_0x1739ab(0xf8)](_0x1739ab(0xf9)),_0x153416[_0x1739ab(0x103)]('start'));}),_0x2b2a0d[_0x48e538(0xfa)]['me']['on'](_0x48e538(0x107),()=>{const _0x3af0c8=_0x48e538;_0x1fa889&&_0x193333&&(_0x153416[_0x3af0c8(0xf8)]('Left\x20combat,\x20auto-stopping\x20rotation'),_0x153416[_0x3af0c8(0x103)](_0x3af0c8(0x12e)));}),this[_0x48e538(0x109)]=()=>{const _0x2517d0=_0x48e538;_0x193333&&(clearInterval(_0x193333),_0x193333=null),_0x153416[_0x2517d0(0x12a)]('on'),_0x153416[_0x2517d0(0x12a)]('off'),_0x153416[_0x2517d0(0x12a)]('auto'),_0x153416[_0x2517d0(0x12a)](_0x2517d0(0x101)),_0x153416[_0x2517d0(0x12a)](_0x2517d0(0x122)),_0x153416[_0x2517d0(0x12a)](_0x2517d0(0x11d)),_0x153416[_0x2517d0(0x12a)](_0x2517d0(0x12e)),_0x153416[_0x2517d0(0x12a)](_0x2517d0(0x123)),_0x153416[_0x2517d0(0x12a)](_0x2517d0(0x121));};});
+// index.js - Main module file
+module.exports = function PVE(mod) {
+    /////// MODULE DEPENDENCIES ///////
+    const { command } = mod.require;
+    const skillData = require('./skills.js');
+    const aimAssist = require('./utils/aimassist.js');
+
+    /////// ROTATION IMPORTS ///////
+    const WarriorRotation = require('./rotations/warrior');
+    const BerserkerRotation = require('./rotations/berserker');
+    const ArcherRotation = require('./rotations/archer');
+
+    /////// GLOBAL STATE ///////
+    let enabled = false;
+    let auto = true;
+    let useAimAssist = true;
+    let skillsOnCooldown = {};
+    let pcid, name, w, x, y, z;
+
+    let warriorRotation = null;
+    let berserkerRotation = null;
+    let archerRotation = null;
+
+    const playerLocation = { w: 0, loc: { x: 0, y: 0, z: 0 } };
+    const knownTargets = new Map();
+    let lastDumpTime = Date.now();
+    const dumpInterval = 5000;
+
+    /////// UTILITY FUNCTIONS ///////
+    function checkDistance(loc1, loc2) {
+        const dx = loc1.x - loc2.x;
+        const dy = loc1.y - loc2.y;
+        const dz = loc1.z - loc2.z;
+        return Math.sqrt(dx * dx + dy * dy + dz * dz);
+    }
+
+    function storeTargetLocation(gameId, loc) {
+        knownTargets.set(gameId, loc);
+        const now = Date.now();
+        if (now - lastDumpTime > dumpInterval) {
+            lastDumpTime = now;
+            for (const [id, location] of knownTargets.entries()) {
+                if (Date.now() - lastDumpTime > dumpInterval) break;
+            }
+        }
+    }
+
+    function castSkill(skillId, duration, target = {}) {
+        const targetLoc = target.loc || playerLocation.loc;
+        const distance = checkDistance(playerLocation.loc, targetLoc);
+
+        if (distance > 1000) return; // Abort if target is too far
+
+        if (useAimAssist) {
+            aimAssist.faceNearest(mod, playerLocation, knownTargets);
+        }
+
+        mod.send('C_START_SKILL', 7, {
+            skill: skillId,
+            w: playerLocation.w,
+            loc: playerLocation.loc,
+            dest: targetLoc,
+            unk: true,
+            moving: false,
+            continue: false,
+            target: target.gameId || 0
+        });
+
+        if (setCooldown) setCooldown(skillId, duration);
+    }
+
+    /////// LOGIN & CLASS SETUP ///////
+    mod.hook('S_LOGIN', 12, event => {
+        try {
+            name = event.name;
+            pcid = event.gameId;
+
+            enabled = false;
+            skillsOnCooldown = {};
+
+            const classId = (event.templateId - 10101) % 100;
+            const commonOptions = {
+                isSkillOnCooldown,
+                setCooldown,
+                pcid,
+                playerLocation,
+                castSkill,
+                skills: skillData[classId] || {}
+            };
+
+            switch (classId) {
+                case 0:
+                    warriorRotation = new WarriorRotation(mod, commonOptions);
+                    command.message(`Warrior rotation loaded.`);
+                    break;
+                case 3:
+                    berserkerRotation = new BerserkerRotation(mod, commonOptions);
+                    command.message(`Berserker rotation loaded.`);
+                    break;
+                case 5:
+                    archerRotation = new ArcherRotation(mod, commonOptions);
+                    command.message(`Archer rotation loaded.`);
+                    break;
+                default:
+                    command.message(`Logged in as ${name}. Unsupported class ID ${classId}.`);
+            }
+        } catch (e) {
+            command.message('Error in login hook: ' + e.message);
+        }
+    });
+
+    /////// LOCATION TRACKING ///////
+    mod.hook('C_PLAYER_LOCATION', 5, event => {
+        w = event.w;
+        x = event.loc.x;
+        y = event.loc.y;
+        z = event.loc.z;
+        playerLocation.w = w;
+        playerLocation.loc = { x, y, z };
+    });
+
+    mod.hook('S_NPC_LOCATION', 3, event => {
+        storeTargetLocation(event.gameId, event.loc);
+    });
+
+    mod.hook('S_USER_LOCATION', 5, event => {
+        storeTargetLocation(event.gameId, event.loc);
+    });
+
+    /////// COMMANDS ///////
+    command.add('on', () => {
+        enabled = true;
+        command.message('Rotations enabled.');
+    });
+
+    command.add('off', () => {
+        enabled = false;
+        command.message('Rotations disabled.');
+    });
+
+    command.add('auto', () => {
+        auto = !auto;
+        command.message(`Auto ${auto ? 'enabled' : 'disabled'}.`);
+    });
+
+    command.add('aimassist', () => {
+        useAimAssist = !useAimAssist;
+        command.message(`AimAssist ${useAimAssist ? 'enabled' : 'disabled'}.`);
+    });
+
+    command.add('tank', () => {
+        if (warriorRotation) {
+            warriorRotation.toggleTankMode();
+            command.message(`Warrior tank mode toggled.`);
+        } else {
+            command.message('Warrior rotation not loaded.');
+        }
+    });
+
+    /////// CONFIG LOAD ///////
+    try {
+        const config = require('./config.json');
+        auto = config.auto?.auto ?? true;
+    } catch (e) {
+        auto = true;
+    }
+
+    /////// COOLDOWN HANDLING ///////
+    function isSkillOnCooldown(skillId) {
+        return skillsOnCooldown[skillId] && Date.now() < skillsOnCooldown[skillId];
+    }
+
+    function setCooldown(skillId, duration) {
+        skillsOnCooldown[skillId] = Date.now() + duration;
+    }
+
+    /////// ROTATION LOOP ///////
+    let rotationInterval;
+
+    function startRotation() {
+        if (rotationInterval) clearInterval(rotationInterval);
+
+        rotationInterval = setInterval(() => {
+            if (warriorRotation) {
+                warriorRotation.execute(enabled);
+            } else if (berserkerRotation) {
+                berserkerRotation.execute(enabled);
+            } else if (archerRotation) {
+                archerRotation.execute(enabled);
+            }
+        }, 100);
+    }
+
+    function stopRotation() {
+        if (rotationInterval) {
+            clearInterval(rotationInterval);
+            rotationInterval = null;
+        }
+    }
+
+    /////// COMBAT STATUS AUTO-TOGGLE ///////
+    mod.hook('S_USER_STATUS', 3, event => {
+        if (event.gameId !== pcid) return;
+
+        if (event.status === 1 && auto && !rotationInterval) {
+            enabled = true;
+            startRotation();
+        } else if (event.status === 0 && auto && rotationInterval) {
+            stopRotation();
+            enabled = false;
+        }
+    });
+
+    /////// MODULE CLEANUP ///////
+    this.destructor = () => {
+        stopRotation();
+        command.remove('on');
+        command.remove('off');
+        command.remove('auto');
+        command.remove('aimassist');
+        command.remove('tank');
+    };
+}
