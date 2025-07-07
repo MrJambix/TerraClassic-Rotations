@@ -1,4 +1,4 @@
-# Works for Tera Classic Private Server
+# Aimed for Tera Classic Private Server
 
 ### Alpha Version
 
