@@ -57,16 +57,8 @@ The obfuscation does not affect functionality or performance, and all features r
 ## Supported Classes
 
 ### Fully Implemented
-- **Warrior** - Both DPS (Assault Stance) and Tank (Defensive Stance) rotations
-- **Archer** - DPS rotation with focus on maintaining buffs and debuffs
+- **Warrior** 
+- **Archer** 
 
 ### Planned
-- Berserker - DPS rotation with proper charge management
-- Valkyrie - DPS rotation with Ragnarok optimization
-- Slayer - DPS rotation with focus on reset mechanics
-- Sorcerer - DPS rotation with mana management
-- Lancer - Tank rotation with aggro maintenance and party buffs
-- Priest - Healing rotation with proper buff uptime
-- Mystic - Healing rotation with thrall management
-- Reaper - DPS rotation with shadow management
-- Gunner - DPS rotation with willpower management
+Unsure 
