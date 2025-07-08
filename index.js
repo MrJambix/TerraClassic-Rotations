@@ -26,6 +26,10 @@ module.exports = function PVE(mod) {
     let lastDumpTime = Date.now();
     const dumpInterval = 5000;
 
+    // PLAYER RESOURCE STATE
+    let playerMP = 0;
+    let playerMaxMP = 0;
+
     /////// UTILITY FUNCTIONS ///////
     function checkDistance(loc1, loc2) {
         const dx = loc1.x - loc2.x;
@@ -45,7 +49,27 @@ module.exports = function PVE(mod) {
         }
     }
 
+    // Skill mana check helper
+    function getSkillManaCost(skillId) {
+        // Try to get from skillData (for current class)
+        // skillData[classId][skillId][0]?.mpCost
+        if (!mod.game.me) return 0;
+        const classId = (mod.game.me.templateId - 10101) % 100;
+        const skillClassData = skillData[classId] || {};
+        // Skill data can have multiple stages, we use stage 0 for cost
+        if (skillClassData[skillId] && skillClassData[skillId][0] && typeof skillClassData[skillId][0].mpCost !== 'undefined') {
+            return skillClassData[skillId][0].mpCost;
+        }
+        return 0;
+    }
+
+    function hasEnoughMana(skillId) {
+        const cost = getSkillManaCost(skillId);
+        return playerMP >= cost;
+    }
+
     function castSkill(skillId, duration, target = {}) {
+        if (!hasEnoughMana(skillId)) return; // Not enough MP
         const targetLoc = target.loc || playerLocation.loc;
         const distance = checkDistance(playerLocation.loc, targetLoc);
 
@@ -125,6 +149,14 @@ module.exports = function PVE(mod) {
 
     mod.hook('S_USER_LOCATION', 5, event => {
         storeTargetLocation(event.gameId, event.loc);
+    });
+
+    /////// PLAYER MP TRACKING ///////
+    mod.hook('S_PLAYER_STAT_UPDATE', 11, event => {
+        if (event.gameId === pcid) {
+            playerMP = event.mp;
+            playerMaxMP = event.maxMp;
+        }
     });
 
     /////// COMMANDS ///////
