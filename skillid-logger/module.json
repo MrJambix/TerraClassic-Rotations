@@ -1,0 +1,6 @@
+{
+  "name": "skillid-logger",
+  "version": "1.0",
+  "description": "Logs skill IDs using skillid.js",
+  "main": "index.js"
+}
