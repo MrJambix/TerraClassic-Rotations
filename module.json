@@ -1,0 +1,21 @@
+{
+    "name": "SkillRotation",
+    "author": "MrJambix",
+    "description": "Skill rotation and automation module for TERA Classic. Provides automated class skill rotations and utilities.",
+    "version": "1.0.0",
+    "repository": "https://github.com/MrJambix/TerraClassic-Rotations",
+    "files": {
+        "README.md": "",
+        "index.js": "",
+        "module.json": "",
+        "settings_migrator.js": ""
+    },
+    "defs": {
+        "C_PLAYER_LOCATION": 5,
+        "S_EACH_SKILL_RESULT": [13, 14, 15]
+    },
+    "supportUrl": "https://github.com/MrJambix/TerraClassic-Rotations/issues",
+    "contributors": [
+        "MrJambix"
+    ]
+}

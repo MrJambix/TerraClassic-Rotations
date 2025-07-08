@@ -1,16 +1,19 @@
-// index.js - Main module file
-module.exports = function PVE(mod) {
-    /////// MODULE DEPENDENCIES ///////
+// index.js - Main module file for SkillRotation (Toolbox/manifest compatible)
+module.exports = function SkillRotation(mod) {
     const { command } = mod.require;
     const skillData = require('./skills.js');
     const aimAssist = require('./utils/aimassist.js');
 
-    /////// ROTATION IMPORTS ///////
+    // ROTATION IMPORTS
     const WarriorRotation = require('./rotations/warrior');
     const BerserkerRotation = require('./rotations/berserker');
     const ArcherRotation = require('./rotations/archer');
+    const GunnerRotation = require('./rotations/gunner');
+    const PriestRotation = require('./rotations/priest');
+    const MysticRotation = require('./rotations/mystic');
+    const SlayerRotation = require('./rotations/slayer');
 
-    /////// GLOBAL STATE ///////
+    // GLOBAL STATE
     let enabled = false;
     let auto = true;
     let useAimAssist = true;
@@ -20,6 +23,10 @@ module.exports = function PVE(mod) {
     let warriorRotation = null;
     let berserkerRotation = null;
     let archerRotation = null;
+    let gunnerRotation = null;
+    let priestRotation = null;
+    let mysticRotation = null;
+    let slayerRotation = null;
 
     const playerLocation = { w: 0, loc: { x: 0, y: 0, z: 0 } };
     const knownTargets = new Map();
@@ -30,7 +37,7 @@ module.exports = function PVE(mod) {
     let playerMP = 0;
     let playerMaxMP = 0;
 
-    /////// UTILITY FUNCTIONS ///////
+    // UTILITY FUNCTIONS
     function checkDistance(loc1, loc2) {
         const dx = loc1.x - loc2.x;
         const dy = loc1.y - loc2.y;
@@ -49,14 +56,10 @@ module.exports = function PVE(mod) {
         }
     }
 
-    // Skill mana check helper
     function getSkillManaCost(skillId) {
-        // Try to get from skillData (for current class)
-        // skillData[classId][skillId][0]?.mpCost
         if (!mod.game.me) return 0;
         const classId = (mod.game.me.templateId - 10101) % 100;
         const skillClassData = skillData[classId] || {};
-        // Skill data can have multiple stages, we use stage 0 for cost
         if (skillClassData[skillId] && skillClassData[skillId][0] && typeof skillClassData[skillId][0].mpCost !== 'undefined') {
             return skillClassData[skillId][0].mpCost;
         }
@@ -69,11 +72,11 @@ module.exports = function PVE(mod) {
     }
 
     function castSkill(skillId, duration, target = {}) {
-        if (!hasEnoughMana(skillId)) return; // Not enough MP
+        if (!hasEnoughMana(skillId)) return;
         const targetLoc = target.loc || playerLocation.loc;
         const distance = checkDistance(playerLocation.loc, targetLoc);
 
-        if (distance > 1000) return; // Abort if target is too far
+        if (distance > 1000) return;
 
         if (useAimAssist) {
             aimAssist.faceNearest(mod, playerLocation, knownTargets);
@@ -93,7 +96,7 @@ module.exports = function PVE(mod) {
         if (setCooldown) setCooldown(skillId, duration);
     }
 
-    /////// LOGIN & CLASS SETUP ///////
+    // LOGIN & CLASS SETUP
     mod.hook('S_LOGIN', 12, event => {
         try {
             name = event.name;
@@ -117,13 +120,35 @@ module.exports = function PVE(mod) {
                     warriorRotation = new WarriorRotation(mod, commonOptions);
                     command.message(`Warrior rotation loaded.`);
                     break;
+                case 1:
+                    slayerRotation = new SlayerRotation(mod, commonOptions);
+                    command.message(`Slayer rotation loaded.`);
+                    break;
                 case 3:
                     berserkerRotation = new BerserkerRotation(mod, commonOptions);
                     command.message(`Berserker rotation loaded.`);
                     break;
+                case 4:
+                    command.message(`Sorcerer not supported yet.`);
+                    break;
                 case 5:
                     archerRotation = new ArcherRotation(mod, commonOptions);
                     command.message(`Archer rotation loaded.`);
+                    break;
+                case 6:
+                    priestRotation = new PriestRotation(mod, commonOptions);
+                    command.message(`Priest rotation loaded.`);
+                    break;
+                case 7:
+                    mysticRotation = new MysticRotation(mod, commonOptions);
+                    command.message(`Mystic rotation loaded.`);
+                    break;
+                case 8:
+                    command.message(`Lancer not supported yet.`);
+                    break;
+                case 9:
+                    gunnerRotation = new GunnerRotation(mod, commonOptions);
+                    command.message(`Gunner rotation loaded.`);
                     break;
                 default:
                     command.message(`Logged in as ${name}. Unsupported class ID ${classId}.`);
@@ -133,7 +158,7 @@ module.exports = function PVE(mod) {
         }
     });
 
-    /////// LOCATION TRACKING ///////
+    // LOCATION TRACKING
     mod.hook('C_PLAYER_LOCATION', 5, event => {
         w = event.w;
         x = event.loc.x;
@@ -151,7 +176,7 @@ module.exports = function PVE(mod) {
         storeTargetLocation(event.gameId, event.loc);
     });
 
-    /////// PLAYER MP TRACKING ///////
+    // PLAYER MP TRACKING
     mod.hook('S_PLAYER_STAT_UPDATE', 11, event => {
         if (event.gameId === pcid) {
             playerMP = event.mp;
@@ -159,7 +184,7 @@ module.exports = function PVE(mod) {
         }
     });
 
-    /////// COMMANDS ///////
+    // COMMANDS
     command.add('on', () => {
         enabled = true;
         command.message('Rotations enabled.');
@@ -181,15 +206,19 @@ module.exports = function PVE(mod) {
     });
 
     command.add('tank', () => {
-        if (warriorRotation) {
+        if (warriorRotation && typeof warriorRotation.toggleTankMode === "function") {
             warriorRotation.toggleTankMode();
             command.message(`Warrior tank mode toggled.`);
         } else {
-            command.message('Warrior rotation not loaded.');
+            command.message('Warrior rotation not loaded or does not support tank mode.');
         }
     });
 
-    /////// CONFIG LOAD ///////
+    command.add('rotationinfo', () => {
+        command.message('SkillRotation module by MrJambix | https://github.com/MrJambix/TerraClassic-Rotations');
+    });
+
+    // CONFIG LOAD
     try {
         const config = require('./config.json');
         auto = config.auto?.auto ?? true;
@@ -197,7 +226,7 @@ module.exports = function PVE(mod) {
         auto = true;
     }
 
-    /////// COOLDOWN HANDLING ///////
+    // COOLDOWN HANDLING
     function isSkillOnCooldown(skillId) {
         return skillsOnCooldown[skillId] && Date.now() < skillsOnCooldown[skillId];
     }
@@ -206,7 +235,7 @@ module.exports = function PVE(mod) {
         skillsOnCooldown[skillId] = Date.now() + duration;
     }
 
-    /////// ROTATION LOOP (dynamic, based on skill duration) ///////
+    // ROTATION LOOP
     let rotationTimeout = null;
 
     function startRotation() {
@@ -215,27 +244,40 @@ module.exports = function PVE(mod) {
         function runRotation() {
             if (!enabled) return;
 
-            let delay = 200; // fallback if no skill is cast
+            let delay = 200;
 
-            // Warrior
             if (warriorRotation && typeof warriorRotation.execute === "function") {
                 const skillDelay = warriorRotation.execute(enabled);
                 if (skillDelay && typeof skillDelay === "number") delay = skillDelay;
             }
-            // Berserker
             else if (berserkerRotation && typeof berserkerRotation.executeWithDelay === "function") {
                 const skillDelay = berserkerRotation.executeWithDelay(enabled);
                 if (skillDelay && typeof skillDelay === "number") delay = skillDelay;
             } else if (berserkerRotation && typeof berserkerRotation.execute === "function") {
-                // fallback for legacy .execute
                 const skillDelay = berserkerRotation.execute(enabled);
                 if (skillDelay && typeof skillDelay === "number") delay = skillDelay;
             }
-            // Archer
             else if (archerRotation && typeof archerRotation.execute === "function") {
                 const skillDelay = archerRotation.execute(enabled);
                 if (skillDelay && typeof skillDelay === "number") delay = skillDelay;
             }
+            else if (gunnerRotation && typeof gunnerRotation.execute === "function") {
+                const skillDelay = gunnerRotation.execute(enabled);
+                if (skillDelay && typeof skillDelay === "number") delay = skillDelay;
+            }
+            else if (priestRotation && typeof priestRotation.execute === "function") {
+                const skillDelay = priestRotation.execute(enabled);
+                if (skillDelay && typeof skillDelay === "number") delay = skillDelay;
+            }
+            else if (mysticRotation && typeof mysticRotation.execute === "function") {
+                const skillDelay = mysticRotation.execute(enabled);
+                if (skillDelay && typeof skillDelay === "number") delay = skillDelay;
+            }
+            else if (slayerRotation && typeof slayerRotation.execute === "function") {
+                const skillDelay = slayerRotation.execute(enabled);
+                if (skillDelay && typeof skillDelay === "number") delay = skillDelay;
+            }
+
             rotationTimeout = setTimeout(runRotation, delay);
         }
         runRotation();
@@ -248,7 +290,7 @@ module.exports = function PVE(mod) {
         }
     }
 
-    /////// COMBAT STATUS AUTO-TOGGLE (using mod.game.me events) ///////
+    // COMBAT STATUS AUTO-TOGGLE
     if (mod.game && mod.game.me) {
         mod.game.me.on('enter_combat', () => {
             if (auto && !rotationTimeout) {
@@ -267,7 +309,7 @@ module.exports = function PVE(mod) {
         });
     }
 
-    /////// MODULE CLEANUP ///////
+    // MODULE CLEANUP
     this.destructor = () => {
         stopRotation();
         command.remove('on');
@@ -275,5 +317,6 @@ module.exports = function PVE(mod) {
         command.remove('auto');
         command.remove('aimassist');
         command.remove('tank');
+        command.remove('rotationinfo');
     };
 }
