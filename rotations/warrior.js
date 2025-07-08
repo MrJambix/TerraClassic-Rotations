@@ -31,10 +31,15 @@ class WarriorRotation {
     tryCastStance() {
         const stance = this.tankMode ? 'defensive' : 'assault';
         const stanceSkill = stance === 'assault' ? 80100 : 90100;
-        if (!this.isSkillOnCooldown(stanceSkill)) {
-            this.castSkill(stanceSkill, 575);
-            this.command.message(`Switched to ${stance} stance.`);
-            return true;
+
+        // Only cast if not already active
+        if ((stance === 'assault' && !this.assaultStanceActive) ||
+            (stance === 'defensive' && !this.defensiveStanceActive)) {
+            if (!this.isSkillOnCooldown(stanceSkill)) {
+                this.castSkill(stanceSkill, 575);
+                this.command.message(`Switched to ${stance} stance.`);
+                return true;
+            }
         }
         return false;
     }
@@ -44,20 +49,41 @@ class WarriorRotation {
         this.tryCastStance();
     }
 
+    toggleTankMode() {
+        this.setTankMode(!this.tankMode);
+    }
+
     ///////// BUFF / ABNORMAL HANDLERS /////////
     hookAbnormals() {
+        // Add debug output for abnormality detection and check for correct version
         this.mod.hook('S_ABNORMALITY_BEGIN', 3, event => {
             if (event.target !== this.pcid) return;
-            if (event.id === 100100) this.assaultStanceActive = true;
-            if (event.id === 100101) this.defensiveStanceActive = true;
+            // Debug output
+            this.command.message(`Abnormality Begin: id=${event.id} stacks=${event.stacks || 0}`);
+            if (event.id === 100100) {
+                this.assaultStanceActive = true;
+                this.command.message('Assault Stance buff detected ON');
+            }
+            if (event.id === 100101) {
+                this.defensiveStanceActive = true;
+                this.command.message('Defensive Stance buff detected ON');
+            }
             if (event.id === 100400) this.resolveActive = true;
             if (event.id === 101300) this.edgeCounter = Math.min(event.stacks, 10);
         });
 
         this.mod.hook('S_ABNORMALITY_END', 1, event => {
             if (event.target !== this.pcid) return;
-            if (event.id === 100100) this.assaultStanceActive = false;
-            if (event.id === 100101) this.defensiveStanceActive = false;
+            // Debug output
+            this.command.message(`Abnormality End: id=${event.id}`);
+            if (event.id === 100100) {
+                this.assaultStanceActive = false;
+                this.command.message('Assault Stance buff detected OFF');
+            }
+            if (event.id === 100101) {
+                this.defensiveStanceActive = false;
+                this.command.message('Defensive Stance buff detected OFF');
+            }
             if (event.id === 100400) this.resolveActive = false;
             if (event.id === 101300) this.edgeCounter = 0;
         });
@@ -113,10 +139,6 @@ class WarriorRotation {
         if (this.resolveActive && !this.isSkillOnCooldown(20100)) {
             this.castSkill(20100, 825); // Evasive Roll
         }
-    }
-
-    toggleStance() {
-        this.setTankMode(!this.tankMode);
     }
 }
 

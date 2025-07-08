@@ -174,42 +174,66 @@ module.exports = function PVE(mod) {
         skillsOnCooldown[skillId] = Date.now() + duration;
     }
 
-    /////// ROTATION LOOP ///////
-    let rotationInterval;
+    /////// ROTATION LOOP (dynamic, based on skill duration) ///////
+    let rotationTimeout = null;
 
     function startRotation() {
-        if (rotationInterval) clearInterval(rotationInterval);
+        stopRotation();
 
-        rotationInterval = setInterval(() => {
-            if (warriorRotation) {
-                warriorRotation.execute(enabled);
-            } else if (berserkerRotation) {
-                berserkerRotation.execute(enabled);
-            } else if (archerRotation) {
-                archerRotation.execute(enabled);
+        function runRotation() {
+            if (!enabled) return;
+
+            let delay = 200; // fallback if no skill is cast
+
+            // Warrior
+            if (warriorRotation && typeof warriorRotation.execute === "function") {
+                const skillDelay = warriorRotation.execute(enabled);
+                if (skillDelay && typeof skillDelay === "number") delay = skillDelay;
             }
-        }, 100);
+            // Berserker
+            else if (berserkerRotation && typeof berserkerRotation.executeWithDelay === "function") {
+                const skillDelay = berserkerRotation.executeWithDelay(enabled);
+                if (skillDelay && typeof skillDelay === "number") delay = skillDelay;
+            } else if (berserkerRotation && typeof berserkerRotation.execute === "function") {
+                // fallback for legacy .execute
+                const skillDelay = berserkerRotation.execute(enabled);
+                if (skillDelay && typeof skillDelay === "number") delay = skillDelay;
+            }
+            // Archer
+            else if (archerRotation && typeof archerRotation.execute === "function") {
+                const skillDelay = archerRotation.execute(enabled);
+                if (skillDelay && typeof skillDelay === "number") delay = skillDelay;
+            }
+            rotationTimeout = setTimeout(runRotation, delay);
+        }
+        runRotation();
     }
 
     function stopRotation() {
-        if (rotationInterval) {
-            clearInterval(rotationInterval);
-            rotationInterval = null;
+        if (rotationTimeout) {
+            clearTimeout(rotationTimeout);
+            rotationTimeout = null;
         }
     }
 
-    /////// COMBAT STATUS AUTO-TOGGLE ///////
-    mod.hook('S_USER_STATUS', 3, event => {
-        if (event.gameId !== pcid) return;
+    /////// COMBAT STATUS AUTO-TOGGLE (using mod.game.me events) ///////
+    if (mod.game && mod.game.me) {
+        mod.game.me.on('enter_combat', () => {
+            if (auto && !rotationTimeout) {
+                enabled = true;
+                startRotation();
+                command.message('Combat started: Rotation enabled.');
+            }
+        });
 
-        if (event.status === 1 && auto && !rotationInterval) {
-            enabled = true;
-            startRotation();
-        } else if (event.status === 0 && auto && rotationInterval) {
-            stopRotation();
-            enabled = false;
-        }
-    });
+        mod.game.me.on('leave_combat', () => {
+            if (auto && rotationTimeout) {
+                stopRotation();
+                enabled = false;
+                command.message('Combat ended: Rotation disabled.');
+            }
+        });
+    }
 
     /////// MODULE CLEANUP ///////
     this.destructor = () => {

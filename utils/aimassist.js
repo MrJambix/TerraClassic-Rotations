@@ -1,9 +1,8 @@
-
 function getNearestTarget(playerLoc, targets) {
     let nearest = null;
     let minDist = Infinity;
 
-    for (const [id, loc] of targets.entries()) {
+    for (const [id, loc] of (targets instanceof Map ? targets.entries() : Object.entries(targets))) {
         const dx = playerLoc.loc.x - loc.x;
         const dy = playerLoc.loc.y - loc.y;
         const dz = playerLoc.loc.z - loc.z;
@@ -24,17 +23,19 @@ function calculateAngle(from, to) {
     return Math.atan2(dy, dx);
 }
 
+// No notifications or rotation packets
 function faceNearest(mod, playerLocation, targets) {
     const nearest = getNearestTarget(playerLocation, targets);
-    if (!nearest) return;
+    if (!nearest) {
+        // Optionally, keep an error/debug message if you want:
+        // mod.command && mod.command.message("No valid targets found.");
+        return;
+    }
 
     const angle = calculateAngle(playerLocation.loc, nearest.loc);
     playerLocation.w = angle;
 
-    mod.send('C_PLAYER_ROTATION', 1, {
-        gameId: mod.game.me.gameId,
-        w: angle
-    });
+    // Do not notify or send any packet.
 }
 
-module.exports = { faceNearest };
+module.exports = { faceNearest, getNearestTarget, calculateAngle };
